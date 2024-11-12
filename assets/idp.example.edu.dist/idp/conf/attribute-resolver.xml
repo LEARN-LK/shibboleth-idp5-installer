@@ -11,15 +11,15 @@
     <!--         The User's ID - UID                -->
     <!-- ========================================== -->
 
-    <!-- Option 1: Using the subject's canonicalized principal name -->
+    <!-- Option 1: Using the subject's canonicalized principal name 
     <AttributeDefinition id="uid" xsi:type="PrincipalName" />
-
+-->
     <!-- Option 2: From the user's UID attribute in the directory -->
-    <!--
+   
     <AttributeDefinition id="uid" xsi:type="Simple">
        <InputDataConnector ref="ldap" attributeNames="uid" />
     </AttributeDefinition>
-    -->
+
 
     <!-- Option 3: From the user's sAMAccountName in Active Directory -->
     <!--
