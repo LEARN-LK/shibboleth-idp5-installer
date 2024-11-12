@@ -50,13 +50,12 @@ password_reset_url: "https://passreset.YOUR-DOMAIN.ac.lk"
 home_organisation: "YOUR-DOMAIN.ac.lk"
 
 # Your schacHomeOrganizationType. See http://www.terena.org/activities/tf-emc2/schacreleases.html
+
 # Relevant values are:
-# urn:schac:homeOrganizationType:int:university
-# urn:schac:homeOrganizationType:int:library
-# urn:schac:homeOrganizationType:int:public-research-institution
-# urn:schac:homeOrganizationType:int:private-research-institution
-# urn:schac:homeOrganizationType:int:other
-home_organisation_type: "urn:schac:homeOrganizationType:int:university"
+# urn:mace:terena.org:schac:homeOrganizationType:au:university
+# urn:mace:terena.org:schac:homeOrganizationType:au:research-institution
+# urn:mace:terena.org:schac:homeOrganizationType:au:other
+home_organisation_type: "urn:mace:terena.org:schac:homeOrganizationType:lk:university"
 
 # Run yum -update on every execution of update_idp.sh
 server_patch: "true"
