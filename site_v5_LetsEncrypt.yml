@@ -151,6 +151,7 @@
       with_items:
         - '{{ installer.root }}'
         - '{{ installer.path }}'
+
     - name: 'Check /etc/letsencrypt/certs is empty or not'
       command: ls /etc/letsencrypt/certs
       ignore_errors: True
@@ -178,11 +179,9 @@
       shell: echo "{{ expire_days }}"
       ignore_errors: True
       register: Num_of_ExpiryDays
-    
+
     - include_tasks: tasks/letsencrypt-issue-jetty.yml
       when: FoundFiles.stdout == "" or Expiry_Result.stdout == 'True' or Num_of_ExpiryDays.stdout | int <= 14
-    - include_tasks: tasks/final.yml
-    
     - include_tasks: tasks/system.yml
     - include_tasks: tasks/jetty.yml
     - include_tasks: tasks/db.yml
