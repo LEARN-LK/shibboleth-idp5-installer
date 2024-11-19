@@ -1,4 +1,4 @@
-# Custom Shibboleth IdP Version 5 Installer for Users of Pakistan
+# Custom Shibboleth IdP Version 5 Installer for LIAF - LEARN Identity Access Federation
 
 ### Identity and Access Management (IAM)
 Identity and Access Management (IAM) is a framework for managing digital identities and controlling access to resources. It ensures that only authorized users have the right access to the right resources at the right time. IAM encompasses policies, technologies, and tools that manage users’ identities, authenticate their access, and authorize their actions within systems, networks, or applications. This framework improves security, operational efficiency, and regulatory compliance by streamlining how access is granted and monitored.
@@ -69,7 +69,7 @@ apt install python3 python3-pip python3-apt
 
 ### Change TimeZone w.r.t to your country:
 ```bash
-timedatectl set-timezone Asia/Karachi 
+timedatectl set-timezone Asia/Colombo
 ```
 
 ---
@@ -82,7 +82,7 @@ timedatectl set-timezone Asia/Karachi
 vim /etc/hosts
 ```
 
-`<YOUR SERVER IP ADDRESS> idp.example.org <HOSTNAME>`
+`<YOUR SERVER IP ADDRESS> idp.YOUR-DOMAIN.ac.lk <HOSTNAME>`
 `hostnamectl set-hostname <HOSTNAME>`
 
 ---
@@ -129,7 +129,7 @@ python3 -m pip install --upgrade --user ansible
    For new installations, download the `bootstrap-v5.ini` file with the following command:
 
    ```bash
-   curl https://raw.githubusercontent.com/pakistan-identity-federation/shibboleth-idp5-installer/main/bootstrap-v5.ini > bootstrap-v5.ini
+   curl https://raw.githubusercontent.com/LEARN-LK/shibboleth-idp5-installer/refs/heads/main/bootstrap-v5.ini > bootstrap-v5.ini
    ```
 
 2. **Edit `bootstrap-v5.ini`:**
@@ -157,7 +157,7 @@ Click the `Esc` key and then type `:wq!` to save and exit the configuration.
    Execute the following command to download and make the installer executable:
 
    ```bash
-   curl https://raw.githubusercontent.com/pakistan-identity-federation/shibboleth-idp5-installer/main/bootstrap-v5.sh > bootstrap-v5.sh && chmod u+x bootstrap-v5.sh
+   curl https://raw.githubusercontent.com/LEARN-LK/shibboleth-idp5-installer/refs/heads/main/bootstrap-v5.sh > bootstrap-v5.sh && chmod u+x bootstrap-v5.sh
    ```
 
    Ensure `bootstrap-v5.ini` is in the same directory as `bootstrap-v5.sh`.
