@@ -87,14 +87,14 @@ vim /etc/hosts
 
 ---
 
-### Installing `Ansible`
-install Ansible run these commands
+### Installing `Ansible` and `Certbot`
+To install Ansible and certbot, execute these commands
 
 ```bash
 apt update
 ```
 ```bash
-apt install ansible -y
+apt install ansible certbot -y
 ```
 ---
 ### Variable
