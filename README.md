@@ -62,7 +62,7 @@ apt update && apt upgrade -y
 First, confirm that Python 3 is installed. If it's not, install it with the following commands:
 
 ```bash
-apt install python3 python3-pip python3-apt
+apt install python3 python3-pip python3-apt -y
 ```
 
 ---
@@ -94,7 +94,7 @@ install Ansible run these commands
 apt update
 ```
 ```bash
-apt install ansible
+apt install ansible -y
 ```
 ---
 ### Variable
