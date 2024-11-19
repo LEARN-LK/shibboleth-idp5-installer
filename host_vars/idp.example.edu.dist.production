@@ -1,38 +1,38 @@
 ---
 # ------------------------------------------------------------------------------
-# EXAMPLE: CONFIGURED FOR PKIFED PRODUCTION ENVIRONMENT
+# EXAMPLE: CONFIGURED FOR LIAF PRODUCTION ENVIRONMENT
 # ------------------------------------------------------------------------------
 
 # Which environment are we running in
 aaf_prod_env: "true"
 
 # The host name of the target machine
-idp_host_name: "idp.example.edu"
+idp_host_name: "idp.YOUR-DOMAIN.ac.lk"
 
 # IdP Entity ID
-idp_entity_id: "https://idp.example.edu/idp/shibboleth"
+idp_entity_id: "https://idp.YOUR-DOMAIN.ac.lk/idp/shibboleth"
 
 # IdP 'Attribute Scope'
-idp_attribute_scope: "example.edu"
+idp_attribute_scope: "YOUR-DOMAIN.ac.lk"
 
 # Federation ID
-federation_id: "PKIFED"
+federation_id: "LIAF"
 
 # The federation's group id used for metadata-based attribute filtering
-federation_group_id: "https://rr.pern.edu.pk/rr3/signedmetadata/federation/PKIFED_eduGAIN/metadata.xml"
+federation_group_id: "https://fr.ac.lk/signedmetadata/metadata.xml"
 
 # Shared federation metadata
-metadata_url: "https://rr.pern.edu.pk/rr3/signedmetadata/federation/PKIFED_eduGAIN/metadata.xml"
+metadata_url: "https://fr.ac.lk/signedmetadata/metadata.xml"
 
 # Shared federation certificate
-metadata_cert_url: "https://rr.pern.edu.pk/rr3/signedmetadata/metadata-signer2.pem"
-metadata_cert_sha256sum: f727c1bac792e4c8c888ba73fd6cb5de8ff71a58b68bc3e056393fc66db1b74f
+metadata_cert_url: "https://fr.ac.lk/signedmetadata/metadata-signer"
+metadata_cert_sha256sum: 17d4adf0b48c5a9c008c1c8942e2cbd54d64f5b0f212c533d9de342ffa9b37c8
 
 # Metadata file name
-metadata_file_name: pkifed-metadata.xml
+metadata_file_name: liaf-metadata.xml
 
 # Metadata certificate file name
-metadata_cert_file_name: pkifed-metadata.pem
+metadata_cert_file_name: liaf-metadata.pem
 
 # Your organisation's name
 organisation_name: "The University of Example"
@@ -41,20 +41,22 @@ organisation_name: "The University of Example"
 organisation_support: "https://support.example.edu"
 
 # Your organisation's home URL
-organisation_url: "https://example.edu"
+organisation_url: "https://YOUR-DOMAIN.ac.lk"
 
 # Your organisation's password reset URL
-password_reset_url: "https://changepw.example.edu"
+password_reset_url: "https://passreset.YOUR-DOMAIN.ac.lk"
 
 # Your schacHomeOrganization. See http://www.terena.org/activities/tf-emc2/schacreleases.html
-home_organisation: "example.edu"
+home_organisation: "YOUR-DOMAIN.ac.lk"
 
 # Your schacHomeOrganizationType. See http://www.terena.org/activities/tf-emc2/schacreleases.html
 # Relevant values are:
-# urn:mace:terena.org:schac:homeOrganizationType:au:university
-# urn:mace:terena.org:schac:homeOrganizationType:au:research-institution
-# urn:mace:terena.org:schac:homeOrganizationType:au:other
-home_organisation_type: "urn:mace:terena.org:schac:homeOrganizationType:pk:university"
+# urn:schac:homeOrganizationType:int:university
+# urn:schac:homeOrganizationType:int:library
+# urn:schac:homeOrganizationType:int:public-research-institution
+# urn:schac:homeOrganizationType:int:private-research-institution
+# urn:schac:homeOrganizationType:int:other
+home_organisation_type: "urn:schac:homeOrganizationType:int:university"
 
 # Run yum -update on every execution of update_idp.sh
 server_patch: "true"
@@ -69,7 +71,7 @@ firewall: "firewalld"
 enable_backchannel: "false"
 
 # eduGAIN metadata
-edugain_metadata_url: "https://rr.pern.edu.pk/rr3/signedmetadata/edugain-export-metadata.xml"
+edugain_metadata_url: "https://fr.ac.lk/signedmetadata/LIAF_to_edugain.xml"
 
 # Enable eduGAIN
 enable_edugain: "false"
@@ -78,7 +80,7 @@ enable_edugain: "false"
 edugain_metadata_file_name: edugain-metadata.xml
 
 # eduGAIN Metadata certificate file name
-edugain_metadata_cert_file_name: pkifed-metadata.pem
+edugain_metadata_cert_file_name: liaf-metadata.pem
 
 # Source Persistent ID attribute name (for Subject ID and Pairwise ID)
 source_persistent_id:
@@ -103,23 +105,23 @@ delivery_stream_name: aafFticksReceiver
 
 # Lets Encrypt Configuration
 # Change Domain name and Email as per your University
-domain_name: idp.example.edu
-acme_email: waqas.ahmed0@gmail.com
+
+domain_name: idp.your-domain.ac.lk
+acme_email: email0@your-domain.ac.lk
 
 # Acme Type & Version
 acme_challenge_type: http-01
 acme_version: 2
 
 #Production Certificate
-#acme_directory: https://acme-v02.api.letsencrypt.org/directory
+acme_directory: https://acme-v02.api.letsencrypt.org/directory
 
 # Staging Testing Certifcate
-acme_directory: https://acme-staging-v02.api.letsencrypt.org/directory
+#acme_directory: https://acme-staging-v02.api.letsencrypt.org/directory
 
 # Local LetsEncrypt Directories
 letsencrypt_dir: /etc/letsencrypt
 letsencrypt_keys_dir: /etc/letsencrypt/keys
 letsencrypt_csrs_dir: /etc/letsencrypt/csrs
 letsencrypt_certs_dir: /etc/letsencrypt/certs
-letsencrypt_account_key: /etc/letsencrypt/account/account.key 
-
+letsencrypt_account_key: /etc/letsencrypt/account/account.key
