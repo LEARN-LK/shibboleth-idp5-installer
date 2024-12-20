@@ -63,7 +63,7 @@ server_patch: "true"
 patch_with: "yum"
 
 # Installed Firewall [firewalld | none ]
-firewall: "firewalld"
+firewall: "none"
 
 # Enable BackChannel
 enable_backchannel: "false"
