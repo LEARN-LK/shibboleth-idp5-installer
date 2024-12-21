@@ -1,4 +1,4 @@
-# Custom Shibboleth IdP Version 5 Installer for Users of Pakistan
+# Custom Shibboleth IdP Version 5 Installer - LIAF
 
 ### Identity and Access Management (IAM)
 Identity and Access Management (IAM) is a framework for managing digital identities and controlling access to resources. It ensures that only authorized users have the right access to the right resources at the right time. IAM encompasses policies, technologies, and tools that manage users’ identities, authenticate their access, and authorize their actions within systems, networks, or applications. This framework improves security, operational efficiency, and regulatory compliance by streamlining how access is granted and monitored.
@@ -10,6 +10,7 @@ Shibboleth Identity Provider (IdP) is a prominent IAM tool used for federated id
 
 ## Overview
 The AAF Shibboleth IdP Installer is designed to automate the install of version 5 for the [Shibboleth IdP](https://shibboleth.atlassian.net/wiki/spaces/IDP5/overview) on a dedicated server with one of the following supported operating systems;
+
 * Rocky Linux
 * Stream
 * Redhat
@@ -23,7 +24,7 @@ For a full set of documentation and guidance on upgrading from Shibboleth versio
 ### Actions undertaken during installation
 The installation process will:
 
-Optionally perform a yum -y update (system wide package upgrade). Please note that the installer uses yum or apt-get for the installation of all system components (except Jetty and Shibboleth IdP).
+Optionally perform a `yum -y` update (system wide package upgrade). Please note that the installer uses yum or apt-get for the installation of all system components (except Jetty and Shibboleth IdP).
 
 * Install all required dependencies (git, ansible, mariadb etc). With the previous step in mind, bootstrap will always use the latest versions of these packages.
 * Create self signed keys for Jetty. These are for initial testing of the IdP and are replaced when further customising the Shibboleth IdP
@@ -83,6 +84,9 @@ vim /etc/hosts
 ```
 
 `<YOUR SERVER IP ADDRESS> idp.example.org <HOSTNAME>`
+
+Run the following command to set the hostname 
+
 `hostnamectl set-hostname <HOSTNAME>`
 
 ---
