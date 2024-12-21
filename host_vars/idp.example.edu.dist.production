@@ -1,6 +1,6 @@
 ---
 # ------------------------------------------------------------------------------
-# EXAMPLE: CONFIGURED FOR PKIFED PRODUCTION ENVIRONMENT
+# EXAMPLE: CONFIGURED FOR LIAF PRODUCTION ENVIRONMENT
 # ------------------------------------------------------------------------------
 
 # Which environment are we running in
@@ -16,23 +16,23 @@ idp_entity_id: "https://idp.example.edu/idp/shibboleth"
 idp_attribute_scope: "example.edu"
 
 # Federation ID
-federation_id: "PKIFED"
+federation_id: "LIAF"
 
 # The federation's group id used for metadata-based attribute filtering
-federation_group_id: "https://rr.pern.edu.pk/rr3/signedmetadata/federation/PKIFED_eduGAIN/metadata.xml"
+federation_group_id: "https://fr.ac.lk/signedmetadata/LIAF_to_edugain.xml"
 
 # Shared federation metadata
-metadata_url: "https://rr.pern.edu.pk/rr3/signedmetadata/federation/PKIFED_eduGAIN/metadata.xml"
+metadata_url: "https://fr.ac.lk/signedmetadata/metadata.xml"
 
 # Shared federation certificate
-metadata_cert_url: "https://rr.pern.edu.pk/rr3/signedmetadata/metadata-signer2.pem"
+metadata_cert_url: "https://fr.ac.lk/signedmetadata/metadata-signer"
 metadata_cert_sha256sum: f727c1bac792e4c8c888ba73fd6cb5de8ff71a58b68bc3e056393fc66db1b74f
 
 # Metadata file name
-metadata_file_name: pkifed-metadata.xml
+metadata_file_name: liaf-metadata.xml
 
 # Metadata certificate file name
-metadata_cert_file_name: pkifed-metadata.pem
+metadata_cert_file_name: liaf-metadata.pem
 
 # Your organisation's name
 organisation_name: "The University of Example"
@@ -54,7 +54,7 @@ home_organisation: "example.edu"
 # urn:mace:terena.org:schac:homeOrganizationType:au:university
 # urn:mace:terena.org:schac:homeOrganizationType:au:research-institution
 # urn:mace:terena.org:schac:homeOrganizationType:au:other
-home_organisation_type: "urn:mace:terena.org:schac:homeOrganizationType:pk:university"
+home_organisation_type: "urn:mace:terena.org:schac:homeOrganizationType:lk:university"
 
 # Run yum -update on every execution of update_idp.sh
 server_patch: "true"
@@ -69,7 +69,7 @@ firewall: "none"
 enable_backchannel: "false"
 
 # eduGAIN metadata
-edugain_metadata_url: "https://rr.pern.edu.pk/rr3/signedmetadata/edugain-export-metadata.xml"
+edugain_metadata_url: "https://fr.ac.lk/signedmetadata/LIAF_to_edugain.xml"
 
 # Enable eduGAIN
 enable_edugain: "false"
@@ -78,7 +78,7 @@ enable_edugain: "false"
 edugain_metadata_file_name: edugain-metadata.xml
 
 # eduGAIN Metadata certificate file name
-edugain_metadata_cert_file_name: pkifed-metadata.pem
+edugain_metadata_cert_file_name: liaf-metadata.pem
 
 # Source Persistent ID attribute name (for Subject ID and Pairwise ID)
 source_persistent_id:
@@ -111,10 +111,10 @@ acme_challenge_type: http-01
 acme_version: 2
 
 #Production Certificate
-acme_directory: https://acme-v02.api.letsencrypt.org/directory
+#acme_directory: https://acme-v02.api.letsencrypt.org/directory
 
 # Staging Testing Certifcate
-#acme_directory: https://acme-staging-v02.api.letsencrypt.org/directory
+acme_directory: https://acme-staging-v02.api.letsencrypt.org/directory
 
 # Local LetsEncrypt Directories
 letsencrypt_dir: /etc/letsencrypt
