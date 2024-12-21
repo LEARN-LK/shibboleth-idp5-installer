@@ -15,31 +15,30 @@
     <!-- <AttributeDefinition id="uid" xsi:type="PrincipalName" /> -->
 
     <!-- Option 2: From the user's UID attribute in the directory -->
-    <!--
+    
     <AttributeDefinition id="uid" xsi:type="Simple">
        <InputDataConnector ref="ldap" attributeNames="uid" />
     </AttributeDefinition>
-    -->
 
     <!-- Option 3: From the user's sAMAccountName in Active Directory -->
-
+    <!--
     <AttributeDefinition id="sAMAccountName" xsi:type="Simple">
        <InputDataConnector ref="ldap" attributeNames="sAMAccountName" />
     </AttributeDefinition>
-
+-->
     <!-- ========================================== -->
-    <!--         PKIFED CORE ATTRIBUTES                -->
+    <!--         LIAF CORE ATTRIBUTES                -->
     <!-- ========================================== -->
 
 	<!-- eduPersonPrincipalName -->
 	
     <AttributeDefinition scope="%{idp.scope}" xsi:type="Scoped" id="eduPersonPrincipalName">
-        <InputDataConnector ref="myLDAP" attributeNames="sAMAccountName"/>
+        <InputDataConnector ref="myLDAP" attributeNames="uid"/>
     </AttributeDefinition>
 
     <!-- eduPersonScopedAffiliation -->
     <AttributeDefinition scope="%{idp.scope}" xsi:type="Scoped" id="eduPersonScopedAffiliation">
-        <InputDataConnector ref="myLDAP" attributeNames="description" />
+        <InputDataConnector ref="myLDAP" attributeNames="eduPersonAffiliation" />
     </AttributeDefinition>
 
    <!-- eduPersonTargetedID -->
@@ -54,8 +53,13 @@
     <AttributeDefinition id="mail" xsi:type="Simple">
        <InputDataConnector ref="myLDAP" attributeNames="mail" />
     </AttributeDefinition>
-    
-    <!-- givenName -->
+
+	<!--e mail -->
+    <AttributeDefinition id="email" xsi:type="Simple">
+       <InputDataConnector ref="myLDAP" attributeNames="mail" />
+    </AttributeDefinition>
+
+	<!-- givenName -->
     <AttributeDefinition id="givenName" xsi:type="Simple">
        <InputDataConnector ref="myLDAP" attributeNames="givenName" />
     </AttributeDefinition>
@@ -66,7 +70,7 @@
     </AttributeDefinition>
     <!-- displayName (displayName) -->
     <AttributeDefinition id="displayName" xsi:type="Simple">
-    <InputDataConnector ref="myLDAP" attributeNames="displayName" />
+    <InputDataConnector ref="myLDAP" attributeNames="cn" />
     </AttributeDefinition>
 	
 	<!-- o (Organisation)
@@ -79,7 +83,10 @@
         <InputDataConnector ref="sharedToken" attributeNames="auEduPersonSharedToken" />
     </AttributeDefinition>
     -->
-
+    <!-- displayName (displayName) -->
+    <AttributeDefinition id="eduPersonAffiliation" xsi:type="Simple">
+    <InputDataConnector ref="myLDAP" attributeNames="eduPersonAffiliation" />
+    </AttributeDefinition>
     <!-- eduPersonAffiliation
     <AttributeDefinition xsi:type="ScriptedAttribute" id="eduPersonAffiliation">
         <InputDataConnector ref="ldap" attributeNames="eduPersonAffiliation" />
@@ -222,10 +229,10 @@
 
     <!-- eduPersonPrincipalName -->
     
-    <!-- Option 1: Appending the organisations scope to the user's UID
+    <!-- Option 1: Appending the organisations scope to the user's UID-->
     <AttributeDefinition id="eduPersonPrincipalName" xsi:type="Scoped" scope="%{idp.scope}">
         <InputAttributeDefinition ref="uid" />
-    </AttributeDefinition> -->
+    </AttributeDefinition> 
 
     <!-- Option 2: From value in LDAP -->
     <!--           Note: The domain name suffix MUST match the scope value -->
@@ -240,7 +247,7 @@
 
     <AttributeDefinition xsi:type="Scoped" id="eduPersonScopedAffiliation" scope="%{idp.scope}">
         <InputAttributeDefinition ref="eduPersonAffiliation" />
-    </AttributeDefinition> -->
+    </AttributeDefinition> 
 
     <!-- eduPersonOrcid 
     <AttributeDefinition id="eduPersonOrcid" xsi:type="Simple">
@@ -248,9 +255,12 @@
     </AttributeDefinition> -->
 
     <!-- ========================================== -->
-    <!--     AAF improtant Optional ATTRIBUTES       -->
+    <!--     LIAF improtant Optional ATTRIBUTES       -->
     <!-- ========================================== -->
-
+	<!-- cn -->
+    <AttributeDefinition id="cn" xsi:type="Simple">
+       <InputDataConnector ref="myLDAP" attributeNames="cn" />
+    </AttributeDefinition>
     <!-- dsdStudentId - Used by myEquals
     <AttributeDefinition xsi:type="Simple" id="dsdStudentId">
         <InputDataConnector ref="ldap" attributeNames="studentNumber" />
