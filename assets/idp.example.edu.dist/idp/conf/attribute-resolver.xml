@@ -261,7 +261,18 @@
     <AttributeDefinition id="cn" xsi:type="Simple">
        <InputDataConnector ref="myLDAP" attributeNames="cn" />
     </AttributeDefinition>
-    <!-- dsdStudentId - Used by myEquals
+
+    <AttributeDefinition id="mobile" xsi:type="Simple">
+       <InputDataConnector ref="myLDAP" attributeNames="mobile" />
+       <AttributeEncoder xsi:type="SAML2String" name="urn:oid:0.9.2342.19200300.100.1.41" friendlyName="mobile" encodeType="false"/>
+    </AttributeDefinition>	
+    <AttributeDefinition xsi:type="Simple" id="schacHomeOrganization">
+       <InputDataConnector ref="staticAttributes" attributeNames="schacHomeOrganization"/>
+    </AttributeDefinition>
+    <AttributeDefinition xsi:type="Simple" id="schacHomeOrganizationType">
+       <InputDataConnector ref="staticAttributes" attributeNames="schacHomeOrganizationType"/>
+    </AttributeDefinition>
+	<!-- dsdStudentId - Used by myEquals
     <AttributeDefinition xsi:type="Simple" id="dsdStudentId">
         <InputDataConnector ref="ldap" attributeNames="studentNumber" />
     </AttributeDefinition> -->
@@ -295,6 +306,9 @@
     </AttributeDefinition> 
 
 {% if source_persistent_id != "" %} -->
+
+
+	
     <!-- ========================================== -->
     <!-- SAML Subject ID Attributes                 -->
     <!-- ========================================== 
