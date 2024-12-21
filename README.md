@@ -70,7 +70,7 @@ apt install python3 python3-pip python3-apt
 
 ### Change TimeZone w.r.t to your country:
 ```bash
-timedatectl set-timezone Asia/Karachi 
+timedatectl set-timezone Asia/Colombo
 ```
 
 ---
@@ -133,7 +133,7 @@ python3 -m pip install --upgrade --user ansible
    For new installations, download the `bootstrap-v5.ini` file with the following command:
 
    ```bash
-   curl https://raw.githubusercontent.com/pakistan-identity-federation/shibboleth-idp5-installer/main/bootstrap-v5.ini > bootstrap-v5.ini
+   curl https://raw.githubusercontent.com/LEARN-LK/shibboleth-idp5-installer/refs/heads/main/bootstrap-v5.ini > bootstrap-v5.ini
    ```
 
 2. **Edit `bootstrap-v5.ini`:**
@@ -161,7 +161,7 @@ Click the `Esc` key and then type `:wq!` to save and exit the configuration.
    Execute the following command to download and make the installer executable:
 
    ```bash
-   curl https://raw.githubusercontent.com/pakistan-identity-federation/shibboleth-idp5-installer/main/bootstrap-v5.sh > bootstrap-v5.sh && chmod u+x bootstrap-v5.sh
+   curl https://raw.githubusercontent.com/LEARN-LK/shibboleth-idp5-installer/refs/heads/main/bootstrap-v5.sh > bootstrap-v5.sh && chmod u+x bootstrap-v5.sh
    ```
 
    Ensure `bootstrap-v5.ini` is in the same directory as `bootstrap-v5.sh`.
