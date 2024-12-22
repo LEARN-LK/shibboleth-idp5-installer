@@ -26,7 +26,7 @@ metadata_url: "https://fr.ac.lk/signedmetadata/metadata.xml"
 
 # Shared federation certificate
 metadata_cert_url: "https://fr.ac.lk/signedmetadata/metadata-signer"
-metadata_cert_sha256sum: f727c1bac792e4c8c888ba73fd6cb5de8ff71a58b68bc3e056393fc66db1b74f
+metadata_cert_sha256sum: 17d4adf0b48c5a9c008c1c8942e2cbd54d64f5b0f212c533d9de342ffa9b37c8
 
 # Metadata file name
 metadata_file_name: liaf-metadata.xml
@@ -38,10 +38,10 @@ metadata_cert_file_name: liaf-metadata.pem
 organisation_name: "The University of Example"
 
 # Your organisation's support desk URL
-organisation_support: "https://support.example.edu"
+organisation_support: "https://liaf.ac.lk/#contact"
 
 # Your organisation's home URL
-organisation_url: "https://example.edu"
+organisation_url: "https://liaf.ac.lk"
 
 # Your organisation's password reset URL
 password_reset_url: "https://changepw.example.edu"
