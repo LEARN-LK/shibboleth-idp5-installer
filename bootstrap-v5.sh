@@ -38,8 +38,8 @@ function set_internal_variables {
     GIT_REPO=https://github.com/LEARN-LK/shibboleth-idp5-installer.git
     GIT_BRANCH=main
 
-    FM_TEST_REG=https://manager.test.aaf.edu.au/
-    FM_PROD_REG=https://manager.aaf.edu.au/
+    FM_TEST_REG=https://fr.ac.lk/
+    FM_PROD_REG=https://fr.ac.lk/
 }
 
 
