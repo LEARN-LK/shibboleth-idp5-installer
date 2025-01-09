@@ -17,7 +17,7 @@
     <!-- Option 2: From the user's UID attribute in the directory -->
     
     <AttributeDefinition id="uid" xsi:type="Simple">
-       <InputDataConnector ref="ldap" attributeNames="uid" />
+       <InputDataConnector ref="myLDAP" attributeNames="uid" />
     </AttributeDefinition>
 
     <!-- Option 3: From the user's sAMAccountName in Active Directory -->
@@ -33,7 +33,7 @@
 	<!-- eduPersonPrincipalName -->
 	
     <AttributeDefinition scope="%{idp.scope}" xsi:type="Scoped" id="eduPersonPrincipalName">
-        <InputDataConnector ref="myLDAP" attributeNames="uid"/>
+       <InputDataConnector ref="myLDAP" attributeNames="uid"/>
     </AttributeDefinition>
 
     <!-- eduPersonScopedAffiliation -->
@@ -249,11 +249,12 @@
         <InputAttributeDefinition ref="eduPersonAffiliation" />
     </AttributeDefinition> 
 
-    <!-- eduPersonOrcid 
+    <!-- eduPersonOrcid -->
+	   <!--
     <AttributeDefinition id="eduPersonOrcid" xsi:type="Simple">
        <InputDataConnector ref="ldap" attributeNames="eduPersonOrcid" />
-    </AttributeDefinition> -->
-
+    </AttributeDefinition> 
+ -->
     <!-- ========================================== -->
     <!--     LIAF improtant Optional ATTRIBUTES       -->
     <!-- ========================================== -->
