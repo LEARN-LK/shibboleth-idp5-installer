@@ -248,7 +248,7 @@
     <AttributeDefinition xsi:type="Scoped" id="eduPersonScopedAffiliation" scope="%{idp.scope}">
         <InputAttributeDefinition ref="eduPersonAffiliation" />
     </AttributeDefinition> 
-
+-->
     <!-- eduPersonOrcid -->
 	   <!--
     <AttributeDefinition id="eduPersonOrcid" xsi:type="Simple">
