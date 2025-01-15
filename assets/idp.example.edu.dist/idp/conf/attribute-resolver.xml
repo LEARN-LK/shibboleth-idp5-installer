@@ -83,155 +83,23 @@
         <InputDataConnector ref="sharedToken" attributeNames="auEduPersonSharedToken" />
     </AttributeDefinition>
     -->
-    <!-- displayName (displayName) -->
+    <!-- eduPersonAffiliation -->
     <AttributeDefinition id="eduPersonAffiliation" xsi:type="Simple">
     <InputDataConnector ref="myLDAP" attributeNames="eduPersonAffiliation" />
     </AttributeDefinition>
-    <!-- eduPersonAffiliation
-    <AttributeDefinition xsi:type="ScriptedAttribute" id="eduPersonAffiliation">
-        <InputDataConnector ref="ldap" attributeNames="eduPersonAffiliation" />
-        <InputDataConnector ref="staticAttributes" attributeNames="affiliationValues" />
-        <Script><![CDATA[
-            var HashSet = Java.type("java.util.HashSet");
-            var newAffiliations = new HashSet();
+   
+    <!-- eduPersonAssurance  
 
-            var values = affiliationValues.getValues();
-
-            if (typeof eduPersonAffiliation != "undefined") {
-                for ( i = 0; i < eduPersonAffiliation.getValues().size(); i++){
-                    value = eduPersonAffiliation.getValues().get(i).toLowerCase();
-                    if (values.contains(value)) {
-                        newAffiliations.add(value);
-                    }
-                }
-            }
-
-            if (newAffiliations.contains("student") ||
-                newAffiliations.contains("faculty") ||
-                newAffiliations.contains("staff") ||
-                newAffiliations.contains("employee")) {
-                    newAffiliations.add("member");
-            }
-
-            if (newAffiliations.size() < 1) {
-                newAffiliations.add("affiliate");
-            }
-
-            eduPersonAffiliation.getValues().clear();
-
-            itr = newAffiliations.iterator();
-            while(itr.hasNext()){
-               eduPersonAffiliation.addValue(itr.next());
-            }
-        ]]></Script>
-    </AttributeDefinition> -->
-
-    <!-- eduPersonAssurance
-    <AttributeDefinition id="eduPersonAssurance" xsi:type="ScriptedAttribute">
-        <InputDataConnector ref="ldap" attributeNames="eduPersonAssurance" />
-        <InputDataConnector ref="staticAttributes" attributeNames="refedsAssuranceFramework" />
-        <Script><![CDATA[
-            var HashSet = Java.type("java.util.HashSet");
-            var assurances = new HashSet();
-            var refedsValues = refedsAssuranceFramework.getValues();
-
-            {% if refeds_baseline_idp_v1 == "false" or refeds_assurance_v2 == "false" %}
-               // Remove all REFEDS Assurance values prefixed as this IdP
-               // does not meet the Conformance criteria.
-               for ( i = 0; i < eduPersonAssurance.getValues().size(); i++){
-                  value = eduPersonAssurance.getValues().get(i);
-                  if (!refedsValues.contains(value))
-                  {
-                      assurances.add(value);
-                  }
-               }
-            {% else %}
-               // Process the values
-               for ( i = 0; i < eduPersonAssurance.getValues().size(); i++){
-                  value = eduPersonAssurance.getValues().get(i);
-                  if (refedsValues.contains(value))
-                  {
-                      assurances.add(value);
-                  }
-               }
-               // Indicate REFEDS RAF is supportted by this IdP
-               assurances.add("https://refeds.org/assurance");
-
-               {% if  refeds_assurance_v2 == "true" %}
-               // REFEDS RAF Version 2 in use
-               assurances.add("https://refeds.org/assurance/version/2");
-               {% endif %}
-
-               {% if refeds_raf_unique == "true" %}
-               // Identifier uniqueness criteria are meet
-               assurances.add("https://refeds.org/assurance/ID/unique");
-               {% endif %}
-
-               {% if refeds_raf_eppn_unique == "no-reassign" or refeds_raf_eppn_unique == "reassign-1y" %}
-               // Set the eppn-unique value
-               assurances.add("https://refeds.org/assurance/ID/eppn-unique-{{ refeds_raf_eppn_unique }}");
-               {% endif %}
-
-               // Enaure IAP/high also have IAP/medium
-               if (assurances.contains("https://refeds.org/assurance/IAP/high")) {
-                  assurances.add("https://refeds.org/assurance/IAP/medium");
-               }
-
-               // Ensure IAP/medium also has IAP/low
-               if (assurances.contains("https://refeds.org/assurance/IAP/medium")) {
-                  assurances.add("https://refeds.org/assurance/IAP/low");
-               }
-
-               {% if refeds_raf_epa == "1m" or refeds_raf_epa == "1d" %}
-               // Set raf freshness
-               assurances.add("https://refeds.org/assurance/ATP/ePA-{{ refeds_raf_epa }}");
-               {% endif %}
-
-               // Ensure ATP/ePA-1d also has ATP/ePA-1m
-               if (assurances.contains("https://refeds.org/assurance/ATP/ePA-1d")) {
-                  assurances.add("https://refeds.org/assurance/ATP/ePA-1m");
-               }
-
-               // Set Cappuccino
-               if (assurances.contains("https://refeds.org/assurance") &&
-                   assurances.contains("https://refeds.org/assurance/ID/unique") &&
-                   assurances.contains("https://refeds.org/assurance/IAP/low") &&
-                   assurances.contains("https://refeds.org/assurance/IAP/medium") &&
-                   assurances.contains("https://refeds.org/assurance/ATP/ePA-1m")) {
-                  assurances.add("https://refeds.org/assurance/profile/cappuccino");
-               } else {
-                   assurances.remove("https://refeds.org/assurance/profile/cappuccino");
-               }
-
-               // Set Espresso
-               if (assurances.contains("https://refeds.org/assurance/profile/cappuccino") &&
-                   assurances.contains("https://refeds.org/assurance/IAP/high")) {
-                  assurances.add("https://refeds.org/assurance/profile/espresso");
-               } else {
-                  assurances.remove("https://refeds.org/assurance/profile/espresso");
-               }
-
-            {% endif %}
-
-            eduPersonAssurance.getValues().clear();
-
-            itr = assurances.iterator();
-            while (itr.hasNext()){
-                eduPersonAssurance.addValue(itr.next());
-            }
-        ]]></Script>
-    </AttributeDefinition> -->
-
-    <!-- eduPersonEntitlement
+    <!-- eduPersonEntitlement -->
     <AttributeDefinition id="eduPersonEntitlement" xsi:type="Simple">
        <InputDataConnector ref="ldap" attributeNames="eduPersonEntitlement" />
-    </AttributeDefinition> -->
+    </AttributeDefinition> 
 
     <!-- eduPersonPrincipalName -->
     
     <!-- Option 1: Appending the organisations scope to the user's UID-->
     <AttributeDefinition id="eduPersonPrincipalName" xsi:type="Scoped" scope="%{idp.scope}">
-        <InputAttributeDefinition ref="uid" />
+        <InputAttributeDefinition ref="mail" />
     </AttributeDefinition> 
 
     <!-- Option 2: From value in LDAP -->
