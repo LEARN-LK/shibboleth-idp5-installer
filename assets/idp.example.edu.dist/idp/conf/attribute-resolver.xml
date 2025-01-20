@@ -240,10 +240,10 @@
     <!-- ========================================== -->
 
     <!-- dsdStudentId - Used by myEquals -->
-    <AttributeDefinition xsi:type="Simple" id="dsdStudentId">
+  <!--   <AttributeDefinition xsi:type="Simple" id="dsdStudentId">
         <InputDataConnector ref="ldap" attributeNames="studentNumber" />
     </AttributeDefinition>
-
+ -->
     <!-- cn (commonName) - Previously a CORE attribute, still used by many services -->
     <!--                   Note: Script is used to ensure cn is of the correct format -->
     <!--                         for the AAF. "FirstName SPACE Surname". -->
