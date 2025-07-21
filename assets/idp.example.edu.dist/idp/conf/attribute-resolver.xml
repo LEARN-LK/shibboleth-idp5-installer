@@ -167,18 +167,12 @@
             expirationTime="%{idp.pool.LDAP.idleTime:PT10M}"/>
     </DataConnector>
 
+	
     <DataConnector id="StoredIDConnector" xsi:type="StoredId" 
         generatedAttributeID="StoredID"
         salt="%{idp.persistentId.salt}" >
-        <InputAttributeDefinition ref="%{idp.persistentId.sourceAttribute}" />
+        <InputAttributeDefinition ref="ldap" attributeNames="%{idp.persistentId.sourceAttribute}" />
         <BeanManagedConnection>shibboleth.JPAStorageService.PersistentDataSource</BeanManagedConnection>
-    </DataConnector>
-
-    <DataConnector xsi:type="aaf:SharedToken" 
-        id="sharedToken"
-        salt="%{idp.aepst.salt}" >
-        <InputAttributeDefinition ref="%{idp.persistentId.sourceAttribute}" />
-        <aaf:BeanManagedConnection>shibboleth.JPAStorageService.DataSource</aaf:BeanManagedConnection>
     </DataConnector>
 
     <DataConnector id="computed" xsi:type="ComputedId"
