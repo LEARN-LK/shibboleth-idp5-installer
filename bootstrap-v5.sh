@@ -512,7 +512,7 @@ To make your IdP functional follow these steps:
        * For the 'Encryption Certificate' paste the contents of $SHIBBOLETH_IDP_INSTANCE/credentials/idp-encryption.crt
 
    - For 'Step 6. Supported Attributes' select the following:
-       * auEduPersonSharedToken
+       * uid
        * commonName
        * displayName
        * eduPersonAffiliation
