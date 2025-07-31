@@ -171,7 +171,7 @@
     <DataConnector id="StoredIDConnector" xsi:type="StoredId" 
         generatedAttributeID="StoredID"
         salt="%{idp.persistentId.salt}" >
-        <InputAttributeDefinition ref="ldap" attributeNames="%{idp.persistentId.sourceAttribute}" />
+        <InputAttributeDefinition ref="%{idp.persistentId.sourceAttribute}" />
         <BeanManagedConnection>shibboleth.JPAStorageService.PersistentDataSource</BeanManagedConnection>
     </DataConnector>
 
