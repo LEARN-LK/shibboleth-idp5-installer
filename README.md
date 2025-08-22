@@ -187,6 +187,13 @@ cat /opt/shibboleth-idp5-installer/activity.log
 ```
 
 ---
+## Change the logo - University/Institute logo
+
+Navigate to the directory location as follows,
+```
+cd /opt/shibboleth-idp5-installer/repository/assets/letswifitest.learn.ac.lk/idp/branding/webapp/images
+```
+then replace `logo.png` with your institute logo
 
 ## Allowing the installer to run again
 In general you will never need to re-run the bootstrap-v5.sh script after it has completed creating the `/opt/shibboleth-v5-installer` directory. You should use the deploy or upgrade scripts instead.
