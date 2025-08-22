@@ -117,71 +117,6 @@
 
                {% if refeds_raf_epa == "1m" or refeds_raf_epa == "1d" %}
                // Set raf freshness
-               assurances.add("https://refeds.org/assurance/ATP/ePA-{{ refeds_raf_epa }}");Last login: Fri Aug 22 12:32:21 on ttys000
-madhubhashini@LEARNs-MacBook-Air-2 ~ % 
-madhubhashini@LEARNs-MacBook-Air-2 ~ % 
-madhubhashini@LEARNs-MacBook-Air-2 ~ % 
-madhubhashini@LEARNs-MacBook-Air-2 ~ % 
-madhubhashini@LEARNs-MacBook-Air-2 ~ % ssh terabyte@192.248.4.235
-terabyte@192.248.4.235's password: 
-Permission denied, please try again.
-terabyte@192.248.4.235's password: 
-Welcome to Ubuntu 24.04.3 LTS (GNU/Linux 6.8.0-78-generic x86_64)
-
- * Documentation:  https://help.ubuntu.com
- * Management:     https://landscape.canonical.com
- * Support:        https://ubuntu.com/pro
-
- System information as of Fri Aug 22 12:38:18 PM +0530 2025
-
-  System load:  0.0                Processes:               107
-  Usage of /:   71.6% of 11.21GB   Users logged in:         0
-  Memory usage: 13%                IPv4 address for enp0s3: 192.248.4.235
-  Swap usage:   0%
-
- * Strictly confined Kubernetes makes edge and IoT secure. Learn how MicroK8s
-   just raised the bar for easy, resilient and secure K8s cluster deployment.
-
-   https://ubuntu.com/engage/secure-kubernetes-at-the-edge
-
-Expanded Security Maintenance for Applications is not enabled.
-
-0 updates can be applied immediately.
-
-Enable ESM Apps to receive additional future security updates.
-See https://ubuntu.com/esm or run: sudo pro status
-
-
-Last login: Fri Aug 22 10:23:44 2025 from 192.248.4.139
-terabyte@terabyte:~$ sudo su 
-[sudo] password for terabyte: 
-root@terabyte:/home/terabyte# cd /opt/shibboleth-idp5-installer/repository/
-root@terabyte:/opt/shibboleth-idp5-installer/repository# ls
-ansible.cfg    ansible_hosts.dist  bootstrap-v5.ini  create_assets.sh  host_vars              LICENSE    README.md                site_v5.yml  templates  upgrade.yml  Whats-new.md
-ansible_hosts  assets              bootstrap-v5.sh   deploy            LetsEncrypt_Script.sh  passwords  site_v5_LetsEncrypt.yml  tasks        upgrade    VERSION
-root@terabyte:/opt/shibboleth-idp5-installer/repository# cd assets/
-root@terabyte:/opt/shibboleth-idp5-installer/repository/assets# ls
-idp.example.edu.dist  letswifitest.learn.ac.lk
-root@terabyte:/opt/shibboleth-idp5-installer/repository/assets# cd letswifitest.learn.ac.lk/
-root@terabyte:/opt/shibboleth-idp5-installer/repository/assets/letswifitest.learn.ac.lk# ls
-idp  jetty  tls
-root@terabyte:/opt/shibboleth-idp5-installer/repository/assets/letswifitest.learn.ac.lk# cd idp/
-root@terabyte:/opt/shibboleth-idp5-installer/repository/assets/letswifitest.learn.ac.lk/idp# ls
-bilateral  branding  conf  credentials
-root@terabyte:/opt/shibboleth-idp5-installer/repository/assets/letswifitest.learn.ac.lk/idp# cd conf/
-root@terabyte:/opt/shibboleth-idp5-installer/repository/assets/letswifitest.learn.ac.lk/idp/conf# ls
-access-control.xml    attribute-registry.xml       attributes  c14n             fticks.properties  intercept        metadata-based-attribute-filter.xml  relying-party.xml       services.properties
-admin                 attribute-resolver.xml       audit.xml   credentials.xml  global.xml         ldap.properties  metadata-providers.xml               saml-nameid.properties  services.xml
-attribute-filter.xml  attribute-resolver.xml.back  authn       errors.xml       idp.properties     logback.xml      policy-based-attribute-filter.xml    saml-nameid.xml
-root@terabyte:/opt/shibboleth-idp5-installer/repository/assets/letswifitest.learn.ac.lk/idp/conf# vi attribute-resolver.xml
-
-
-
-
-
-
-               {% if refeds_raf_epa == "1m" or refeds_raf_epa == "1d" %}
-               // Set raf freshness
                assurances.add("https://refeds.org/assurance/ATP/ePA-{{ refeds_raf_epa }}");
                {% endif %}
 
@@ -219,7 +154,7 @@ root@terabyte:/opt/shibboleth-idp5-installer/repository/assets/letswifitest.lear
             }
         ]]></Script>
     </AttributeDefinition>
-
+	
     <!-- eduPersonEntitlement -->
     <AttributeDefinition id="eduPersonEntitlement" xsi:type="Simple">
        <InputDataConnector ref="ldap" attributeNames="eduPersonEntitlement" />
