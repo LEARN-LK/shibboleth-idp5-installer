@@ -5,7 +5,7 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="urn:mace:shibboleth:2.0:afp http://shibboleth.net/schema/idp/shibboleth-afp.xsd">
 <!-- =====================================================================================
-                                        Proxy for ZOOM
+                                        Proxy for Indico - Event Management System
      ====================================================================================== -->
 
     <AttributeFilterPolicy id="events.learn.ac.lk">
@@ -65,7 +65,194 @@
                 <Rule xsi:type="Value" value="library-walk-in" caseSensitive="false" />
             </PermitValueRule>
         </AttributeRule>
+    </AttributeFilterPolicy>
+	
+     <!-- =====================================================================================
+                                        Proxy for ZOOM
+     ====================================================================================== -->
+
+    <AttributeFilterPolicy id="learn.zoom.us">
+        <PolicyRequirementRule xsi:type="Requester" value="https://proxy.liaf.ac.lk/Saml2/proxy_saml2_backend.xml" />
+
+        <AttributeRule attributeID="cn">
+            <PermitValueRule xsi:type="ANY" />
+        </AttributeRule>
+        <AttributeRule attributeID="uid">
+            <PermitValueRule xsi:type="ANY" />
+        </AttributeRule>
+        <AttributeRule attributeID="email">
+            <PermitValueRule xsi:type="ANY" />
+        </AttributeRule>
+        <AttributeRule attributeID="sn">
+            <PermitValueRule xsi:type="ANY" />
+        </AttributeRule>
+        <AttributeRule attributeID="organizationName">
+            <PermitValueRule xsi:type="ANY" />
+        </AttributeRule>
+        <AttributeRule attributeID="organizationalUnit">
+            <PermitValueRule xsi:type="ANY" />
+        </AttributeRule>
+        <AttributeRule attributeID="mobile">
+            <PermitValueRule xsi:type="ANY" />
+        </AttributeRule>
+        <AttributeRule attributeID="givenName">
+            <PermitValueRule xsi:type="ANY" />
+        </AttributeRule>
+        <AttributeRule attributeID="preferredLanguage">
+            <PermitValueRule xsi:type="ANY" />
+        </AttributeRule>
+        <AttributeRule attributeID="eduPersonAffiliation">
+            <PermitValueRule xsi:type="ANY" />
+        </AttributeRule>
+        <AttributeRule attributeID="eduPersonEntitlement">
+            <PermitValueRule xsi:type="ANY" />
+        </AttributeRule>
+        <AttributeRule attributeID="eduPersonOrgUnitDN">
+            <PermitValueRule xsi:type="ANY" />
+        </AttributeRule>
+        <AttributeRule attributeID="eduPersonPrimaryAffiliation">
+            <PermitValueRule xsi:type="ANY" />
+        </AttributeRule>
+        <AttributeRule attributeID="eduPersonPrincipalName">
+            <PermitValueRule xsi:type="ANY" />
+        </AttributeRule>
+        <AttributeRule attributeID="eduPersonScopedAffiliation">
+            <PermitValueRule xsi:type="OR">
+                <Rule xsi:type="Value" value="faculty" caseSensitive="false" />
+                <Rule xsi:type="Value" value="student" caseSensitive="false" />
+                <Rule xsi:type="Value" value="staff" caseSensitive="false" />
+                <Rule xsi:type="Value" value="alum" caseSensitive="false" />
+                <Rule xsi:type="Value" value="member" caseSensitive="false" />
+                <Rule xsi:type="Value" value="affiliate" caseSensitive="false" />
+                <Rule xsi:type="Value" value="employee" caseSensitive="false" />
+                <Rule xsi:type="Value" value="library-walk-in" caseSensitive="false" />
+            </PermitValueRule>
+        </AttributeRule>
 
     </AttributeFilterPolicy>
+
+     <!-- =====================================================================================
+                                        Proxy for vCR
+     ====================================================================================== -->
+	
+    <AttributeFilterPolicy id="vcr.learn.ac.lk">
+        <PolicyRequirementRule xsi:type="Requester" value="https://bbb-fdds.learn.ac.lk/Saml2/proxy_saml2_backend.xml" />
+
+        <AttributeRule attributeID="cn">
+            <PermitValueRule xsi:type="ANY" />
+        </AttributeRule>
+        <AttributeRule attributeID="uid">
+            <PermitValueRule xsi:type="ANY" />
+        </AttributeRule>
+        <AttributeRule attributeID="email">
+            <PermitValueRule xsi:type="ANY" />
+        </AttributeRule>
+        <AttributeRule attributeID="sn">
+            <PermitValueRule xsi:type="ANY" />
+        </AttributeRule>
+        <AttributeRule attributeID="organizationName">
+            <PermitValueRule xsi:type="ANY" />
+        </AttributeRule>
+        <AttributeRule attributeID="organizationalUnit">
+            <PermitValueRule xsi:type="ANY" />
+        </AttributeRule>
+        <AttributeRule attributeID="mobile">
+            <PermitValueRule xsi:type="ANY" />
+        </AttributeRule>
+        <AttributeRule attributeID="givenName">
+            <PermitValueRule xsi:type="ANY" />
+        </AttributeRule>
+        <AttributeRule attributeID="preferredLanguage">
+            <PermitValueRule xsi:type="ANY" />
+        </AttributeRule>
+        <AttributeRule attributeID="eduPersonAffiliation">
+            <PermitValueRule xsi:type="ANY" />
+        </AttributeRule>
+        <AttributeRule attributeID="eduPersonEntitlement">
+            <PermitValueRule xsi:type="ANY" />
+        </AttributeRule>
+        <AttributeRule attributeID="eduPersonOrgUnitDN">
+            <PermitValueRule xsi:type="ANY" />
+        </AttributeRule>
+        <AttributeRule attributeID="eduPersonPrimaryAffiliation">
+            <PermitValueRule xsi:type="ANY" />
+        </AttributeRule>
+        <AttributeRule attributeID="eduPersonPrincipalName">
+            <PermitValueRule xsi:type="ANY" />
+        </AttributeRule>
+        <AttributeRule attributeID="eduPersonScopedAffiliation">
+            <PermitValueRule xsi:type="OR">
+                <Rule xsi:type="Value" value="faculty" caseSensitive="false" />
+                <Rule xsi:type="Value" value="student" caseSensitive="false" />
+                <Rule xsi:type="Value" value="staff" caseSensitive="false" />
+                <Rule xsi:type="Value" value="alum" caseSensitive="false" />
+                <Rule xsi:type="Value" value="member" caseSensitive="false" />
+                <Rule xsi:type="Value" value="affiliate" caseSensitive="false" />
+                <Rule xsi:type="Value" value="employee" caseSensitive="false" />
+                <Rule xsi:type="Value" value="library-walk-in" caseSensitive="false" />
+            </PermitValueRule>
+        </AttributeRule>
+     </AttributeFilterPolicy>
+	
+     <!-- =====================================================================================
+                                        Proxy for vCR
+     ====================================================================================== -->
+	
+    <AttributeFilterPolicy id="dspace.ac.lk">
+        <PolicyRequirementRule xsi:type="Requester" value="https://dspace-b.ac.lk/shibboleth" />
+        <AttributeRule attributeID="commonName">
+            <PermitValueRule xsi:type="ANY" />
+        </AttributeRule>
+        <AttributeRule attributeID="uid">
+            <PermitValueRule xsi:type="ANY" />
+        </AttributeRule>
+        <AttributeRule attributeID="email">
+            <PermitValueRule xsi:type="ANY" />
+        </AttributeRule>
+        <AttributeRule attributeID="surname">
+            <PermitValueRule xsi:type="ANY" />
+        </AttributeRule>
+        <AttributeRule attributeID="organizationName">
+            <PermitValueRule xsi:type="ANY" />
+        </AttributeRule>
+        <AttributeRule attributeID="organizationalUnit">
+            <PermitValueRule xsi:type="ANY" />
+        </AttributeRule>
+        <AttributeRule attributeID="mobile">
+            <PermitValueRule xsi:type="ANY" />
+        </AttributeRule>
+        <AttributeRule attributeID="givenName">
+            <PermitValueRule xsi:type="ANY" />
+        </AttributeRule>
+        <AttributeRule attributeID="preferredLanguage">
+            <PermitValueRule xsi:type="ANY" />
+        </AttributeRule>
+        <AttributeRule attributeID="eduPersonAffiliation">
+            <PermitValueRule xsi:type="ANY" />
+        </AttributeRule>
+        <AttributeRule attributeID="eduPersonEntitlement">
+            <PermitValueRule xsi:type="ANY" />
+        </AttributeRule>
+        <AttributeRule attributeID="eduPersonOrgUnitDN">
+            <PermitValueRule xsi:type="ANY" />
+        </AttributeRule>
+        <AttributeRule attributeID="eduPersonPrimaryAffiliation">
+            <PermitValueRule xsi:type="ANY" />
+        </AttributeRule>
+        <AttributeRule attributeID="eduPersonPrincipalName">
+            <PermitValueRule xsi:type="ANY" />
+        </AttributeRule>
+        <AttributeRule attributeID="eduPersonScopedAffiliation">
+            <PermitValueRule xsi:type="OR">
+                <Rule xsi:type="Value" value="faculty" caseSensitive="false" />
+                <Rule xsi:type="Value" value="staff" caseSensitive="false" />
+                <Rule xsi:type="Value" value="alum" caseSensitive="false" />
+                <Rule xsi:type="Value" value="member" caseSensitive="false" />
+                <Rule xsi:type="Value" value="affiliate" caseSensitive="false" />
+                <Rule xsi:type="Value" value="library-walk-in" caseSensitive="false" />
+            </PermitValueRule>
+        </AttributeRule>
+    </AttributeFilterPolicy>
+
 </AttributeFilterPolicyGroup>
 
