@@ -31,7 +31,7 @@
     <util:list id ="shibboleth.AttributeRegistryResources">
         <value>%{idp.home}/conf/attribute-registry.xml</value>
         <value>%{idp.home}/conf/attributes/default-rules.xml</value>
-        <value>%{idp.home}/conf/attribute-resolver.xml</value>
+        <value>%{idp.home}/conf/attribute-resolver-LEARN-dontmind.xml</value>
     </util:list>
 
     <util:list id ="shibboleth.AttributeFilterResources">
