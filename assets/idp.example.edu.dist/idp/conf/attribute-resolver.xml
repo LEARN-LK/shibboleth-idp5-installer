@@ -21,7 +21,7 @@
 
     <!-- eduPersonAffiliation -->
     <AttributeDefinition xsi:type="ScriptedAttribute" id="eduPersonAffiliation">
-            <!--         <InputDataConnector ref="ldap" attributeNames="eduPersonAffiliation" />-->
+        <InputDataConnector ref="ldap" attributeNames="eduPersonAffiliation" />
         <InputDataConnector ref="staticAttributes" attributeNames="affiliationValues" />
         <Script><![CDATA[
             var HashSet = Java.type("java.util.HashSet");
