@@ -177,7 +177,7 @@ Click the `Esc` key and then type `:wq!` to save and exit the configuration.
 This process will install and configure the server to operate as a Shibboleth Identity Provider (IdP).
 
 ---
-If you want to do the changes in idp configuration files.
+## If you want to do the changes in idp configuration files.
 
 1. navigate to
    ```
