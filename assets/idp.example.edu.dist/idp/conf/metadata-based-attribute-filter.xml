@@ -17,6 +17,9 @@
         <AttributeRule attributeID="uid">
             <PermitValueRule xsi:type="ANY" />
         </AttributeRule>
+        <AttributeRule attributeID="mail">
+            <PermitValueRule xsi:type="ANY" />
+        </AttributeRule>
         <AttributeRule attributeID="email">
             <PermitValueRule xsi:type="ANY" />
         </AttributeRule>
@@ -78,6 +81,9 @@
             <PermitValueRule xsi:type="ANY" />
         </AttributeRule>
         <AttributeRule attributeID="uid">
+            <PermitValueRule xsi:type="ANY" />
+        </AttributeRule>
+        <AttributeRule attributeID="mail">
             <PermitValueRule xsi:type="ANY" />
         </AttributeRule>
         <AttributeRule attributeID="email">
@@ -144,6 +150,9 @@
         <AttributeRule attributeID="uid">
             <PermitValueRule xsi:type="ANY" />
         </AttributeRule>
+        <AttributeRule attributeID="mail">
+            <PermitValueRule xsi:type="ANY" />
+        </AttributeRule>
         <AttributeRule attributeID="email">
             <PermitValueRule xsi:type="ANY" />
         </AttributeRule>
@@ -204,6 +213,9 @@
             <PermitValueRule xsi:type="ANY" />
         </AttributeRule>
         <AttributeRule attributeID="uid">
+            <PermitValueRule xsi:type="ANY" />
+        </AttributeRule>
+        <AttributeRule attributeID="mail">
             <PermitValueRule xsi:type="ANY" />
         </AttributeRule>
         <AttributeRule attributeID="email">
