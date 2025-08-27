@@ -9,7 +9,7 @@ Shibboleth Identity Provider (IdP) is a prominent IAM tool used for federated id
 ---
 
 ## Overview
-The AAF Shibboleth IdP Installer is designed to automate the install of version 5 for the [Shibboleth IdP](https://shibboleth.atlassian.net/wiki/spaces/IDP5/overview) on a dedicated server with one of the following supported operating systems;
+The Shibboleth IdP Installer is designed to automate the install of version 5 for the [Shibboleth IdP](https://shibboleth.atlassian.net/wiki/spaces/IDP5/overview) on a dedicated server with one of the following supported operating systems;
 
 * Rocky Linux
 * Stream
@@ -56,7 +56,6 @@ Update and Upgrade the database of available packages:
 ```bash
 apt update && apt upgrade -y
 ```
-
 ---
 
 ### Ensure `Python` is Installed
