@@ -5,61 +5,35 @@
         xmlns:aaf="urn:mace:aaf.edu.au:shibboleth:2.0:resolver"
         xsi:schemaLocation="urn:mace:shibboleth:2.0:resolver http://shibboleth.net/schema/idp/shibboleth-attribute-resolver.xsd
                             urn:mace:aaf.edu.au:shibboleth:2.0:resolver classpath:/schema/aaf-shibv5-ext.xsd">
- <!-- ========================================== -->
+    <!-- ========================================== -->
     <!--      Attribute Definitions                 -->
     <!-- ========================================== -->
-
-
+	
     <AttributeDefinition id="uid" xsi:type="Simple">
        <InputDataConnector ref="ldap" attributeNames="uid" />
     </AttributeDefinition>
 
-  <!-- displayName -->
+   <!-- displayName -->
     <AttributeDefinition id="displayName" xsi:type="Simple">
        <InputDataConnector ref="ldap" attributeNames="displayName" />
     </AttributeDefinition>
 
     <!-- eduPersonAffiliation -->
-    <AttributeDefinition xsi:type="ScriptedAttribute" id="eduPersonAffiliation">
-        <InputDataConnector ref="ldap" attributeNames="eduPersonAffiliation" />
-        <InputDataConnector ref="staticAttributes" attributeNames="affiliationValues" />
-        <Script><![CDATA[
-            var HashSet = Java.type("java.util.HashSet");
-            var newAffiliations = new HashSet();
-
-            var values = affiliationValues.getValues();
-
-            if (typeof eduPersonAffiliation != "undefined") {
-                for ( i = 0; i < eduPersonAffiliation.getValues().size(); i++){
-                    value = eduPersonAffiliation.getValues().get(i).toLowerCase();
-                    if (values.contains(value)) {
-                        newAffiliations.add(value);
-                    }
-                }
-            }
-
-            if (newAffiliations.contains("student") ||
-                newAffiliations.contains("faculty") ||
-                newAffiliations.contains("staff") ||
-                newAffiliations.contains("employee")) {
-                    newAffiliations.add("member");
-            }
-
-            if (newAffiliations.size() < 1) {
-                newAffiliations.add("affiliate");
-            }
-
-            eduPersonAffiliation.getValues().clear();
-
-            itr = newAffiliations.iterator();
-            while(itr.hasNext()){
-               eduPersonAffiliation.addValue(itr.next());
-            }
-         ]]></Script>
+    <AttributeDefinition id="eduPersonAffiliation" xsi:type="Simple">
+       <InputDataConnector ref="ldap" attributeNames="eduPersonAffiliation" />
+    </AttributeDefinition>
+	
+    <!-- eduPersonOrgUnitDN -->
+    <AttributeDefinition xsi:type="Simple" id="eduPersonOrgUnitDN">
+        <InputDataConnector ref="ldap" attributeNames="eduPersonOrgUnitDN" />
     </AttributeDefinition>
 
+	<!-- Mobile -->
+    <AttributeDefinition xsi:type="Simple" id="mobile">
+        <InputDataConnector ref="ldap" attributeNames="mobile" />
+    </AttributeDefinition>
+	
     <!-- eduPersonAssurance -->
-
     <AttributeDefinition id="eduPersonAssurance" xsi:type="ScriptedAttribute">
         <InputDataConnector ref="ldap" attributeNames="eduPersonAssurance" />
         <InputDataConnector ref="staticAttributes" attributeNames="refedsAssuranceFramework" />
@@ -159,12 +133,13 @@
     <AttributeDefinition id="eduPersonEntitlement" xsi:type="Simple">
        <InputDataConnector ref="ldap" attributeNames="eduPersonEntitlement" />
     </AttributeDefinition>
+	
+	<!-- eduPersonPrincipalName -->
     <AttributeDefinition id="eduPersonPrincipalName" xsi:type="Prescoped">
         <InputDataConnector ref="ldap" attributeNames="eduPersonPrincipalName" />
     </AttributeDefinition>
 
     <!-- eduPersonScopedAffiliation -->
-
     <AttributeDefinition xsi:type="Scoped" id="eduPersonScopedAffiliation" scope="%{idp.scope}">
         <InputAttributeDefinition ref="eduPersonAffiliation" />
     </AttributeDefinition>
@@ -174,11 +149,17 @@
         <AttributeEncoder xsi:type="SAML1XMLObject" name="urn:oid:1.3.6.1.4.1.5923.1.1.1.10"/>
         <AttributeEncoder xsi:type="SAML2XMLObject" name="urn:oid:1.3.6.1.4.1.5923.1.1.1.10" friendlyName="eduPersonTargetedID"/>
     </AttributeDefinition>
+	
     <!-- mail -->
     <AttributeDefinition id="mail" xsi:type="Simple">
        <InputDataConnector ref="ldap" attributeNames="mail" />
     </AttributeDefinition>
-
+	
+    <!-- email -->
+	<AttributeDefinition id="email" xsi:type="Simple">
+       <InputDataConnector ref="ldap" attributeNames="mail" />
+    </AttributeDefinition>
+	
     <!-- givenName -->
     <AttributeDefinition id="givenName" xsi:type="Simple">
        <InputDataConnector ref="ldap" attributeNames="givenName" />
@@ -188,7 +169,7 @@
     <AttributeDefinition id="sn" xsi:type="Simple">
        <InputDataConnector ref="ldap" attributeNames="sn" />
     </AttributeDefinition>
-
+    <!-- cn (common name)-->
  <AttributeDefinition xsi:type="ScriptedAttribute" id="cn">
         <InputAttributeDefinition ref="givenName" />
         <InputAttributeDefinition ref="sn" />
