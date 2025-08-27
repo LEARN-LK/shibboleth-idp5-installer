@@ -192,6 +192,17 @@ cd /opt/shibboleth-idp5-installer/repository
 ```
 ---
 
+## Service status
+
+if you want to start, stop or check the status of the idp service use following commands
+
+To start idp service : `systemctl start idp`
+
+To stop idp service : `systemctl stop idp`
+
+To check status of idp service : `systemctl status idp`
+
+---
 ## Event Logging
 
 The installer provides detailed information on each step undertaken during the setup process. If the installation completes successfully, this output can be disregarded. However, for future reference, all installer output is logged to:
