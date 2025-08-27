@@ -180,11 +180,14 @@ This process will install and configure the server to operate as a Shibboleth Id
 
 1. navigate to
    ```
-   /opt/shibboleth-idp5-installer/repository/assets/<DNS-IDP>/idp/conf
+   cd /opt/shibboleth-idp5-installer/repository/assets/<DNS-IDP>/idp/conf
+
    ```
-3. execute
+   and do the changes.
+3. Then navigate to the repository directory and execute `deploy` script
 
 ```
+cd /opt/shibboleth-idp5-installer/repository
 ./deploy
 ```
 ---
