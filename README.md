@@ -1,4 +1,4 @@
-# Custom Shibboleth IdP Version 5 Installer - LIAF
+# Custom Shibboleth IdP Version 5 Installer - [LIAF](https://liaf.ac.lk)
 
 ### Identity and Access Management (IAM)
 Identity and Access Management (IAM) is a framework for managing digital identities and controlling access to resources. It ensures that only authorized users have the right access to the right resources at the right time. IAM encompasses policies, technologies, and tools that manage users’ identities, authenticate their access, and authorize their actions within systems, networks, or applications. This framework improves security, operational efficiency, and regulatory compliance by streamlining how access is granted and monitored.
@@ -16,8 +16,6 @@ The Shibboleth IdP Installer is designed to automate the install of version 5 fo
 * Redhat
 * ORACLE Linux
 * Ubuntu
-
-For a full set of documentation and guidance on upgrading from Shibboleth version 4 please refer to the [AAF IdPv4 Installer Knowledge base](https://support.aaf.edu.au/support/solutions/articles/19000159910-shibboleth-idp-version-5-installer).
 
 # Shibboleth IdP Version 5 Installer
 
@@ -67,7 +65,7 @@ apt install python3 python3-pip python3-apt
 
 ---
 
-### Change TimeZone w.r.t to your country:
+### Change TimeZone w.r.t to your country: Asia/Colombo
 ```bash
 timedatectl set-timezone Asia/Colombo
 ```
@@ -174,6 +172,12 @@ Click the `Esc` key and then type `:wq!` to save and exit the configuration.
    ```
 
 This process will install and configure the server to operate as a Shibboleth Identity Provider (IdP).
+---
+## Register idp-metadata in Federation Regitry - LIAF
+
+If you are member in LIAF, log-in to Federation Registry with the username|password and do the [necessary changes](https://github.com/LEARN-LK/IAM/blob/master/change_keys_fr.md).
+
+(If your institute is new to LIAF, please contact tac@learn.ac.lk for assistance to register your Identity Provider in [LIAF](https://liaf.ac.lk/#join))
 
 ---
 ## If you want to do the changes in idp configuration files.
