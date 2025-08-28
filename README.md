@@ -181,6 +181,12 @@ If you are member in LIAF, log-in to Federation Registry with the username|passw
 
 (If your institute is new to LIAF, please contact tac@learn.ac.lk for assistance to register your Identity Provider in [LIAF](https://liaf.ac.lk/#join))
 
+Metadata location 
+
+```
+cd /opt/shibboleth/shibboleth-idp/current/metadata
+```
+
 ---
 ## If you want to do the changes in idp configuration files.
 
