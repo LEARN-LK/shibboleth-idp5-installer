@@ -172,7 +172,9 @@ Click the `Esc` key and then type `:wq!` to save and exit the configuration.
    ```
 
 This process will install and configure the server to operate as a Shibboleth Identity Provider (IdP).
+
 ---
+
 ## Register idp-metadata in Federation Regitry - LIAF
 
 If you are member in LIAF, log-in to Federation Registry with the username|password and do the [necessary changes](https://github.com/LEARN-LK/IAM/blob/master/change_keys_fr.md).
