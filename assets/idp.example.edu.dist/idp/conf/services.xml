@@ -35,7 +35,7 @@
     </util:list>
 
     <util:list id ="shibboleth.AttributeFilterResources">
-        <!-- <value>%{idp.home}/conf/metadata-based-attribute-filter.xml</value> -->
+        <value>%{idp.home}/conf/metadata-based-attribute-filter.xml</value>
         <value>%{idp.home}/conf/attribute-filter.xml</value>
         <value>%{idp.home}/conf/policy-based-attribute-filter.xml</value>
         <ref bean="Metadata-Based-Filter"/>
@@ -57,8 +57,4 @@
     <util:list id="shibboleth.MessageSourceResources">
         <value>%{idp.home}/messages/messages</value>
     </util:list>
-    <bean id="Metadata-Based-Filter" class="net.shibboleth.ext.spring.resource.FileBackedHTTPResource"
-          c:client-ref="shibboleth.FileCachingHttpClient"
-          c:url="https://raw.githubusercontent.com/LEARN-LK/shibboleth-idp5-installer/refs/heads/main/assets/idp.example.edu.dist/idp/conf/metadata-based-attribute-filter.xml"
-          c:backingFile="%{idp.home}/conf/metadata-based-attribute-filter.xml"/> 
 </beans>
