@@ -327,5 +327,26 @@
             </PermitValueRule>
         </AttributeRule>
      </AttributeFilterPolicy>
+
+     <!-- =====================================================================================
+                                     Release ePTId and ePSA to Anyone
+     ====================================================================================== -->
+         
+    <AttributeFilterPolicy id="attributesToAnyone">
+        <PolicyRequirementRule xsi:type="ANY"/>
+        <AttributeRule attributeID="eduPersonPrincipalName">
+            <PermitValueRule xsi:type="ANY"/>
+        </AttributeRule>
+        <AttributeRule attributeID="eduPersonScopedAffiliation">
+            <PermitValueRule xsi:type="ANY"/>
+        </AttributeRule>
+        <AttributeRule attributeID="email">
+            <PermitValueRule xsi:type="ANY" />
+        </AttributeRule>
+        <AttributeRule attributeID="mail"> 
+            <PermitValueRule xsi:type="ANY"/>
+        </AttributeRule>
+    </AttributeFilterPolicy>
+	
 </AttributeFilterPolicyGroup>
 
