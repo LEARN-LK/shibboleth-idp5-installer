@@ -348,5 +348,38 @@
         </AttributeRule>
     </AttributeFilterPolicy>
 	
+    <!-- ========================================================================================
+    Release the 'eduPersonEntitlement' attribute with a specific value to Elsevier ScienceDirect
+    ============================================================================================= -->
+	
+   <AttributeFilterPolicy id="Elsevier_ScienceDirect">
+      <PolicyRequirementRule xsi:type="AND">
+         <Rule xsi:type="RegistrationAuthority" registrars="https://liaf.ac.lk" />
+         <Rule xsi:type="Requester" value="https://sdauth.sciencedirect.com/" />
+      </PolicyRequirementRule>
+
+      <AttributeRule attributeID="eduPersonEntitlement">
+         <DenyValueRule xsi:type="NOT">
+            <Rule xsi:type="Value" value="urn:mace:dir:entitlement:common-lib-terms" />
+         </DenyValueRule>
+      </AttributeRule>
+   </AttributeFilterPolicy>
+	
+    <!-- ==========================================================================================
+    Release the 'eduPersonEntitlement' attribute with a specific value to Taylor and Francis OnLine 
+	=============================================================================================== -->
+	
+   <AttributeFilterPolicy id="Taylor_and_Francis_online">
+      <PolicyRequirementRule xsi:type="AND">
+         <Rule xsi:type="RegistrationAuthority" registrars="https://liaf.ac.lk" />
+         <Rule xsi:type="Requester" value="https://www.tandfonline.com/shibboleth" />
+      </PolicyRequirementRule>
+
+      <AttributeRule attributeID="eduPersonEntitlement">
+         <DenyValueRule xsi:type="NOT">
+            <Rule xsi:type="Value" value="urn:mace:dir:entitlement:common-lib-terms" />
+         </DenyValueRule>
+      </AttributeRule>
+   </AttributeFilterPolicy>
 </AttributeFilterPolicyGroup>
 
