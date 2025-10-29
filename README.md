@@ -228,7 +228,7 @@ cat /opt/shibboleth-idp5-installer/activity.log
 
 Navigate to the directory location as follows,
 ```
-cd /opt/shibboleth-idp5-installer/repository/assets/letswifitest.learn.ac.lk/idp/branding/webapp/images
+cd /opt/shibboleth-idp5-installer/repository/assets/<DNS>/idp/branding/webapp/images
 ```
 then replace `logo.png` with your institute logo
 
