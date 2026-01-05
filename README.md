@@ -243,12 +243,6 @@ rm /root/.lock-idp-bootstrap-v5 && ./bootstrap-v5.sh
 
 The bootstrap-v5 process will now start over and attempt to install and configure your server to operate as a Shibboleth IdP.
 
-
-
-
-
-
-
 ## Using the new Hello World feature
 
 Using the new Hello World feature introduced at version 4.1. It should show the default login page. You can try entering your credentials and one of two outcomes will occur;
@@ -256,3 +250,11 @@ Using the new Hello World feature introduced at version 4.1. It should show the 
 Successful login and you receive an Access Denied message in the log. 
 
 `https://[HOST_NAME]/idp/profile/admin/hello`
+
+## Hint : After successful implentation, add following line into crontab
+
+
+```
+@reboot echo y | /bin/bash /opt/shibboleth-idp5-installer/repository/deploy > /tmp/idp-deploy.log 2>&1
+
+```
