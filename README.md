@@ -251,7 +251,7 @@ Successful login and you receive an Access Denied message in the log.
 
 `https://[HOST_NAME]/idp/profile/admin/hello`
 
-## If you are using AD instead of LDAP, please follow the steps in the [guide](https://github.com/LEARN-LK/IAM/blob/master/allowing_services_IDP/AD_for_IDP_and_eduroam.md)
+## If you are using AD instead of LDAP, please follow the steps in the [guide](https://github.com/LEARN-LK/IAM/blob/master/allowing_services_IDP/AD_for_IDP_and_eduroam.md#in-your-institutional-idp)
 
 ## Hint : After successful implentation, add following line into crontab
 
