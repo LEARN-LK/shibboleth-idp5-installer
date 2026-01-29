@@ -327,7 +327,70 @@
             </PermitValueRule>
         </AttributeRule>
      </AttributeFilterPolicy>
-
+	
+     <!-- =====================================================================================
+                                        Edunet - LEARN
+     ====================================================================================== -->
+	
+    <AttributeFilterPolicy id="edunet.learn.ac.lk">
+        <PolicyRequirementRule xsi:type="Requester" value="https://edunet.learn.ac.lk/auth/saml2/sp/metadata.php" />
+        <AttributeRule attributeID="cn">
+            <PermitValueRule xsi:type="ANY" />
+        </AttributeRule>
+        <AttributeRule attributeID="uid">
+            <PermitValueRule xsi:type="ANY" />
+        </AttributeRule>
+        <AttributeRule attributeID="sn">
+            <PermitValueRule xsi:type="ANY" />
+        </AttributeRule>
+        <AttributeRule attributeID="mail">
+            <PermitValueRule xsi:type="ANY" />
+        </AttributeRule>
+        <AttributeRule attributeID="email">
+            <PermitValueRule xsi:type="ANY" />
+        </AttributeRule>
+        <AttributeRule attributeID="organizationName">
+            <PermitValueRule xsi:type="ANY" />
+        </AttributeRule>
+        <AttributeRule attributeID="organizationalUnit">
+            <PermitValueRule xsi:type="ANY" />
+        </AttributeRule>
+        <AttributeRule attributeID="mobile">
+            <PermitValueRule xsi:type="ANY" />
+        </AttributeRule>
+        <AttributeRule attributeID="givenName">
+            <PermitValueRule xsi:type="ANY" />
+        </AttributeRule>
+        <AttributeRule attributeID="preferredLanguage">
+            <PermitValueRule xsi:type="ANY" />
+        </AttributeRule>
+        <AttributeRule attributeID="eduPersonAffiliation">
+            <PermitValueRule xsi:type="ANY" />
+        </AttributeRule>
+        <AttributeRule attributeID="eduPersonEntitlement">
+            <PermitValueRule xsi:type="ANY" />
+        </AttributeRule>
+        <AttributeRule attributeID="eduPersonOrgUnitDN">
+            <PermitValueRule xsi:type="ANY" />
+        </AttributeRule>
+        <AttributeRule attributeID="eduPersonPrimaryAffiliation">
+            <PermitValueRule xsi:type="ANY" />
+        </AttributeRule>
+        <AttributeRule attributeID="eduPersonPrincipalName">
+            <PermitValueRule xsi:type="ANY" />
+        </AttributeRule>
+        <AttributeRule attributeID="eduPersonScopedAffiliation">
+            <PermitValueRule xsi:type="OR">
+                <Rule xsi:type="Value" value="faculty" caseSensitive="false" />
+                <Rule xsi:type="Value" value="staff" caseSensitive="false" />
+                <Rule xsi:type="Value" value="alum" caseSensitive="false" />
+                <Rule xsi:type="Value" value="member" caseSensitive="false" />
+                <Rule xsi:type="Value" value="affiliate" caseSensitive="false" />
+                <Rule xsi:type="Value" value="library-walk-in" caseSensitive="false" />
+            </PermitValueRule>
+        </AttributeRule>
+    </AttributeFilterPolicy>
+    
      <!-- =====================================================================================
                                      Release ePTId and ePSA to Anyone
      ====================================================================================== -->
