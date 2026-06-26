@@ -153,7 +153,6 @@
            
     - name: 'Check /etc/letsencrypt/certs is empty or not'
       command: ls /etc/letsencrypt/certs
-     
       ignore_errors: True
       register: FoundFiles
 
@@ -168,18 +167,20 @@
 
     - name: "Cert expiry status"
       vars:
-        expire_status: "{{ (( cert.expired )) }}"
+        expire_status: "{{ cert.expired }}"
       shell: echo "{{ expire_status }}"
       ignore_errors: True
-      register: Expiry_Result      
+      register: Expiry_Result
+      when: cert is not failed
 
     - name: "How many days until cert expires"
       vars:
-        expire_days: "{{ (( cert.not_after | to_datetime('%Y%m%d%H%M%SZ')) - (ansible_date_time.iso8601 | to_datetime('%Y-%m-%dT%H:%M:%SZ')) ).days }}"
+        expire_days: "{{ ((cert.not_after | to_datetime('%Y%m%d%H%M%SZ')) - (ansible_date_time.iso8601 | to_datetime('%Y-%m-%dT%H:%M:%SZ'))).days }}"
       shell: echo "{{ expire_days }}"
       ignore_errors: True
       register: Num_of_ExpiryDays
-    
+      when: cert is not failed
+
     - include_tasks: tasks/system.yml
     - include_tasks: tasks/jetty.yml
     - include_tasks: tasks/db.yml
@@ -193,7 +194,11 @@
     - include_tasks: tasks/local_conf.yml
     - include_tasks: tasks/final.yml
     - include_tasks: tasks/letsencrypt-issue-jetty.yml
-      when: FoundFiles.stdout == "" or Expiry_Result.stdout == 'True' or Num_of_ExpiryDays.stdout | int <= 14    
+      when: >
+        (FoundFiles.stdout | default('')) == "" or
+        (Expiry_Result.stdout | default('')) == 'True' or
+        (Num_of_ExpiryDays.stdout | default('0') | int) <= 14 or
+        (cert is failed)
     - include_tasks: tasks/final.yml
 
   handlers:
