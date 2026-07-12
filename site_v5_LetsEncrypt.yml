@@ -160,6 +160,7 @@
       get_certificate:
         host: "{{ inventory_hostname }}"
         port: 443
+        asn1_base64: true
       delegate_to: "{{ inventory_hostname }}"
       run_once: true
       ignore_errors: True
